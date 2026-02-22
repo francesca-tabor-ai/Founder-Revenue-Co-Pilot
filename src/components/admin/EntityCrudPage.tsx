@@ -91,6 +91,14 @@ export function EntityCrudPage({
     if (typeof val === "object" && val !== null && "email" in val)
       return (val as { email?: string }).email ?? JSON.stringify(val);
     if (val instanceof Object && "toISOString" in val) return (val as Date).toLocaleDateString();
+    // Handle ISO date strings from API
+    if (typeof val === "string" && /^\d{4}-\d{2}-\d{2}/.test(val)) {
+      try {
+        return new Date(val).toLocaleDateString();
+      } catch {
+        return val;
+      }
+    }
     return String(val);
   };
 

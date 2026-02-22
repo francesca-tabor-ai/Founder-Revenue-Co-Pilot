@@ -42,6 +42,18 @@ export function Header() {
             Contact
           </Link>
           <Link
+            href="/auth/login"
+            className="micro-link text-body-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+          >
+            Login
+          </Link>
+          <Link
+            href="/admin"
+            className="micro-link text-body-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+          >
+            Admin
+          </Link>
+          <Link
             href="/#cta"
             className="micro-btn rounded-xl bg-[var(--color-text-primary)] px-5 py-2.5 text-body-sm font-medium text-white shadow-sm hover:opacity-90"
           >

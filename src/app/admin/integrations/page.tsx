@@ -1,17 +1,19 @@
 import { EntityCrudPage } from "@/components/admin/EntityCrudPage";
 
-export default function AdminRevenueEventsPage() {
+export default function AdminIntegrationsPage() {
   return (
     <EntityCrudPage
-      title="Revenue Events"
-      apiPath="revenue-events"
+      title="Integrations"
+      apiPath="integrations"
       columns={[
-        { key: "amount", label: "Amount" },
-        { key: "currency", label: "Currency" },
+        { key: "name", label: "Name" },
         { key: "type", label: "Type" },
-        { key: "description", label: "Description" },
         { key: "organization.name", label: "Organization" },
-        { key: "effectiveDate", label: "Effective Date" },
+        {
+          key: "isActive",
+          label: "Active",
+          render: (val) => (val ? "Yes" : "No"),
+        },
         { key: "createdAt", label: "Created" },
       ]}
       getId={(item) => (item.id as string) ?? ""}
