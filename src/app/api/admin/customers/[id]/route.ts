@@ -1,0 +1,48 @@
+import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { requireAdmin } from "@/lib/admin-auth";
+import { z } from "zod";
+
+const updateSchema = z.object({
+  organizationId: z.string().optional(),
+  email: z.string().email().optional(),
+  name: z.string().optional(),
+  externalId: z.string().optional(),
+  metadata: z.record(z.unknown()).optional(),
+});
+
+export async function GET(_: Request, { params }: { params: Promise<{ id: string }> }) {
+  const auth = await requireAdmin();
+  if (auth instanceof NextResponse) return auth;
+  const item = await prisma.customer.findUnique({
+    where: { id: (await params).id },
+    include: { organization: true },
+  });
+  if (!item) return NextResponse.json({ error: "Not found" }, { status: 404 });
+  return NextResponse.json(item);
+}
+
+export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const auth = await requireAdmin();
+  if (auth instanceof NextResponse) return auth;
+  try {
+    const body = await req.json();
+    const parsed = updateSchema.safeParse(body);
+    if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
+    const item = await prisma.customer.update({
+      where: { id: (await params).id },
+      data: parsed.data,
+      include: { organization: true },
+    });
+    return NextResponse.json(item);
+  } catch (e) {
+    return NextResponse.json({ error: "Failed to update" }, { status: 500 });
+  }
+}
+
+export async function DELETE(_: Request, { params }: { params: Promise<{ id: string }> }) {
+  const auth = await requireAdmin();
+  if (auth instanceof NextResponse) return auth;
+  await prisma.customer.delete({ where: { id: (await params).id } });
+  return NextResponse.json({ ok: true });
+}

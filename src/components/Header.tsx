@@ -10,7 +10,19 @@ export function Header() {
         >
           Founder Revenue Co-Pilot
         </Link>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-6 lg:gap-8">
+          <Link
+            href="/api-docs"
+            className="micro-link hidden text-body-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] sm:block"
+          >
+            API Docs
+          </Link>
+          <Link
+            href="/marketplace"
+            className="micro-link hidden text-body-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] sm:block"
+          >
+            Marketplace
+          </Link>
           <Link
             href="/pricing"
             className="micro-link text-body-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"

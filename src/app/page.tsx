@@ -85,6 +85,32 @@ export default function Home() {
           </FadeIn>
         </section>
 
+        {/* CTA section — /#cta target for nav and pricing links */}
+        <section id="cta" className="border-t border-[var(--color-border)] bg-[var(--color-bg-subtle)] py-20">
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <h2 className="text-h2 mb-4 text-[var(--color-text-primary)]">
+              Ready to ship revenue?
+            </h2>
+            <p className="text-body-lg mb-8 text-[var(--color-text-secondary)]">
+              Start your 14-day free trial. No credit card required.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/auth/signup"
+                className="micro-btn inline-flex items-center rounded-xl bg-[var(--color-text-primary)] px-8 py-3 text-body font-medium text-white shadow-sm hover:opacity-90"
+              >
+                Get started free
+              </Link>
+              <Link
+                href="/pricing"
+                className="micro-btn inline-flex items-center rounded-xl border border-[var(--color-border-strong)] px-8 py-3 text-body font-medium text-[var(--color-text-primary)] hover:bg-[var(--color-bg-subtle)]"
+              >
+                View pricing
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <Footer />
       </main>
     </div>

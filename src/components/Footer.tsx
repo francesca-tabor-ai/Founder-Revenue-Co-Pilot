@@ -16,7 +16,19 @@ export function Footer() {
               Developer-first revenue infrastructure.
             </p>
           </div>
-          <div className="flex gap-8">
+          <div className="flex flex-wrap gap-6 sm:gap-8">
+            <Link
+              href="/api-docs"
+              className="micro-link text-body-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+            >
+              API Docs
+            </Link>
+            <Link
+              href="/marketplace"
+              className="micro-link text-body-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+            >
+              App Marketplace
+            </Link>
             <Link
               href="/pricing"
               className="micro-link text-body-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
