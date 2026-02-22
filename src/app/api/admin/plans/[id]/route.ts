@@ -9,7 +9,7 @@ const updateSchema = z.object({
   price: z.number().optional(),
   currency: z.string().optional(),
   interval: z.string().optional(),
-  features: z.record(z.unknown()).optional(),
+  features: z.record(z.string(), z.unknown()).optional(),
 });
 
 export async function GET(_: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -29,7 +29,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     const item = await prisma.plan.update({
       where: { id: (await params).id },
-      data: parsed.data,
+      data: parsed.data as any,
     });
     return NextResponse.json(item);
   } catch (e) {

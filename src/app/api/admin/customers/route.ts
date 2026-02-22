@@ -8,7 +8,7 @@ const createSchema = z.object({
   email: z.string().email(),
   name: z.string().optional(),
   externalId: z.string().optional(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
 export async function GET() {
@@ -29,7 +29,7 @@ export async function POST(req: Request) {
     const parsed = createSchema.safeParse(body);
     if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     const item = await prisma.customer.create({
-      data: parsed.data,
+      data: parsed.data as never,
       include: { organization: true },
     });
     return NextResponse.json(item);

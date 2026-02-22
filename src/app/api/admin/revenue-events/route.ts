@@ -10,7 +10,7 @@ const createSchema = z.object({
   currency: z.string().default("USD"),
   type: z.string(),
   description: z.string().optional(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
   effectiveDate: z.string().datetime(),
 });
 
@@ -33,7 +33,7 @@ export async function POST(req: Request) {
     if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     const data = { ...parsed.data, effectiveDate: new Date(parsed.data.effectiveDate) };
     const item = await prisma.revenueEvent.create({
-      data,
+      data: data as any,
       include: { organization: true, customer: true },
     });
     return NextResponse.json(item);

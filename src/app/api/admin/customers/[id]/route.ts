@@ -8,7 +8,7 @@ const updateSchema = z.object({
   email: z.string().email().optional(),
   name: z.string().optional(),
   externalId: z.string().optional(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
 export async function GET(_: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -31,7 +31,8 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     const item = await prisma.customer.update({
       where: { id: (await params).id },
-      data: parsed.data,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      data: parsed.data as any,
       include: { organization: true },
     });
     return NextResponse.json(item);

@@ -40,7 +40,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     if (parsed.data.password) data.passwordHash = await bcrypt.hash(parsed.data.password, 12);
     const user = await prisma.user.update({
       where: { id },
-      data,
+      data: data as any,
       select: { id: true, email: true, name: true, role: true, updatedAt: true },
     });
     return NextResponse.json(user);

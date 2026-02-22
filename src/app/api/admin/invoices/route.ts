@@ -13,7 +13,7 @@ const createSchema = z.object({
   dueDate: z.string().datetime().optional(),
   paidAt: z.string().datetime().optional(),
   externalId: z.string().optional(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
 export async function GET() {
@@ -39,7 +39,7 @@ export async function POST(req: Request) {
       paidAt: parsed.data.paidAt ? new Date(parsed.data.paidAt) : null,
     };
     const item = await prisma.invoice.create({
-      data,
+      data: data as any,
       include: { organization: true, customer: true },
     });
     return NextResponse.json(item);

@@ -10,7 +10,7 @@ const updateSchema = z.object({
   currency: z.string().optional(),
   type: z.string().optional(),
   description: z.string().optional(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
   effectiveDate: z.string().datetime().optional(),
 });
 

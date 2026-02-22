@@ -29,7 +29,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     const item = await prisma.teamMember.update({
       where: { id: (await params).id },
-      data: parsed.data,
+      data: parsed.data as any,
       include: { user: true, organization: true },
     });
     return NextResponse.json(item);

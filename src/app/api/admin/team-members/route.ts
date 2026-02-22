@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     const parsed = createSchema.safeParse(body);
     if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     const item = await prisma.teamMember.create({
-      data: parsed.data,
+      data: parsed.data as any,
       include: { user: true, organization: true },
     });
     return NextResponse.json(item);

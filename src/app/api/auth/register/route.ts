@@ -14,9 +14,9 @@ export async function POST(req: Request) {
     const body = await req.json();
     const parsed = schema.safeParse(body);
     if (!parsed.success) {
-      const firstError = parsed.error.errors[0];
+      const firstError = parsed.error.issues[0];
       const message = firstError
-        ? `${firstError.path.join(".")}: ${firstError.message}`
+        ? `${(firstError.path as string[]).join(".")}: ${firstError.message}`
         : "Invalid input";
       return NextResponse.json({ error: message }, { status: 400 });
     }

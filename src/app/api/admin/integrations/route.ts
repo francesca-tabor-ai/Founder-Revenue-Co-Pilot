@@ -7,7 +7,7 @@ const createSchema = z.object({
   organizationId: z.string(),
   type: z.enum(["STRIPE", "BILLING", "CUSTOM"]),
   name: z.string(),
-  config: z.record(z.unknown()).optional(),
+  config: z.record(z.string(), z.unknown()).optional(),
   isActive: z.boolean().default(true),
 });
 
@@ -29,7 +29,7 @@ export async function POST(req: Request) {
     const parsed = createSchema.safeParse(body);
     if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     const item = await prisma.integration.create({
-      data: parsed.data,
+      data: parsed.data as any,
       include: { organization: true },
     });
     return NextResponse.json(item);

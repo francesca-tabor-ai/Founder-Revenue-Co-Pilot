@@ -7,7 +7,7 @@ const updateSchema = z.object({
   organizationId: z.string().optional(),
   type: z.enum(["STRIPE", "BILLING", "CUSTOM"]).optional(),
   name: z.string().optional(),
-  config: z.record(z.unknown()).optional(),
+  config: z.record(z.string(), z.unknown()).optional(),
   isActive: z.boolean().optional(),
 });
 
@@ -31,7 +31,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     const item = await prisma.integration.update({
       where: { id: (await params).id },
-      data: parsed.data,
+      data: parsed.data as any,
       include: { organization: true },
     });
     return NextResponse.json(item);

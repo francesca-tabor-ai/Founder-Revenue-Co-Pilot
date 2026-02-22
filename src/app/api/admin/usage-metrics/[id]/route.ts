@@ -8,7 +8,7 @@ const updateSchema = z.object({
   metricType: z.string().optional(),
   value: z.number().optional(),
   period: z.string().optional(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
 export async function GET(_: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -28,7 +28,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     const item = await prisma.usageMetric.update({
       where: { id: (await params).id },
-      data: parsed.data,
+      data: parsed.data as any,
     });
     return NextResponse.json(item);
   } catch (e) {

@@ -8,7 +8,7 @@ const createSchema = z.object({
   metricType: z.string(),
   value: z.number(),
   period: z.string(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
 export async function GET() {
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const parsed = createSchema.safeParse(body);
     if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
-    const item = await prisma.usageMetric.create({ data: parsed.data });
+    const item = await prisma.usageMetric.create({ data: parsed.data as any });
     return NextResponse.json(item);
   } catch (e) {
     return NextResponse.json({ error: "Failed to create" }, { status: 500 });

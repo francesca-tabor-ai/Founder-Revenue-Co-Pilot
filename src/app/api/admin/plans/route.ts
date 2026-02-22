@@ -9,7 +9,7 @@ const createSchema = z.object({
   price: z.number(),
   currency: z.string().default("USD"),
   interval: z.string().default("month"),
-  features: z.record(z.unknown()).optional(),
+  features: z.record(z.string(), z.unknown()).optional(),
 });
 
 export async function GET() {
@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const parsed = createSchema.safeParse(body);
     if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
-    const item = await prisma.plan.create({ data: parsed.data });
+    const item = await prisma.plan.create({ data: parsed.data as any });
     return NextResponse.json(item);
   } catch (e) {
     return NextResponse.json({ error: "Failed to create" }, { status: 500 });

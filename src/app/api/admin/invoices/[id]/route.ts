@@ -13,7 +13,7 @@ const updateSchema = z.object({
   dueDate: z.string().datetime().nullable().optional(),
   paidAt: z.string().datetime().nullable().optional(),
   externalId: z.string().optional(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
 export async function GET(_: Request, { params }: { params: Promise<{ id: string }> }) {

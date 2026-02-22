@@ -35,7 +35,7 @@ export async function POST(req: Request) {
       currentPeriodEnd: new Date(parsed.data.currentPeriodEnd),
     };
     const item = await prisma.subscription.create({
-      data,
+      data: data as any,
       include: { organization: true, plan: true },
     });
     return NextResponse.json(item);
