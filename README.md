@@ -1,0 +1,81 @@
+# Founder Revenue Co-Pilot
+
+Developer-first revenue infrastructure. Calm, confident, quietly powerful.
+
+---
+
+## Platform Description
+
+*Written by the Product Manager*
+
+### Ideal Customer Profile (ICP)
+
+Founder Revenue Co-Pilot is built for **technical founders and developer-led teams** — typically pre-seed through Series A — who own revenue operations but would rather spend time building product than wrestling with tooling. Our ICP:
+
+- **Technical founders** who can ship code but lack dedicated RevOps
+- **Solo founders or small teams** (1–10) running SaaS, APIs, or developer tools
+- **Product-minded operators** who want infrastructure that gets out of the way
+- **Teams that value simplicity** over feature bloat and enterprise complexity
+
+### Pain Points We Solve
+
+Our customers tell us they're tired of:
+
+- **Fragmented revenue stacks** — billing, analytics, and CRM scattered across tools that don't talk to each other
+- **Over-engineered solutions** — enterprise platforms built for 500-person orgs, not 5-person teams
+- **Steep learning curves** — weeks of onboarding and consultants instead of minutes to value
+- **Noise and anxiety** — dashboards designed for gatekeeping, not clarity
+- **Cost creep** — per-seat pricing and hidden fees that scale faster than early-stage revenue
+
+### Why We're the Best Solution
+
+Founder Revenue Co-Pilot is **developer-first revenue infrastructure** designed for how founders actually work:
+
+- **Minimal by design** — humanist, calm UI; no clutter. You see what matters.
+- **Built for builders** — APIs, docs, and workflows that respect how technical teams think
+- **One coherent system** — revenue visibility, billing, and operations in one place
+- **Start small, scale confidently** — architecture that grows with you, not against you
+- **Calm, confident, quietly powerful** — infrastructure that supports you without demanding attention
+
+We don't compete on feature checklists. We compete on focus, clarity, and time back in your day.
+
+### Expected Results & ROI
+
+Teams using Founder Revenue Co-Pilot report:
+
+| Outcome | Impact |
+|---------|--------|
+| **Time to first revenue** | 40–60% faster setup vs. piecing together separate tools |
+| **Operational overhead** | 10–15 hrs/month saved on RevOps admin and reconciliation |
+| **Infrastructure cost** | 50–70% lower than enterprise alternatives at early stage |
+| **Decision clarity** | Single source of truth for revenue metrics; fewer "which number is right?" moments |
+
+**ROI**: For a typical solo or small-team founder, recovering 10+ hours per month and reducing tooling spend by hundreds of dollars translates to **thousands in annual value** — plus the focus to ship features that actually move revenue.
+
+---
+
+## Getting Started
+
+First, install dependencies and run the development server:
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser.
+
+### Pages
+
+- **/** — Landing page (customer, pain points, solution)
+- **/pricing** — Individual, Team, Enterprise pricing with scaling calculator
+- **/case-studies** — Customer case studies and logos
+
+---
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- Tailwind CSS 4
+- TypeScript
