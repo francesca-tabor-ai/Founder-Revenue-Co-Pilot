@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ChatWidget } from "@/components/ChatWidget";
+import { LazyChatWidget } from "@/components/LazyChatWidget";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "Founder Revenue Co-Pilot",
@@ -16,8 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen antialiased">
+        <ScrollToTop />
         {children}
-        <ChatWidget />
+        <LazyChatWidget />
       </body>
     </html>
   );

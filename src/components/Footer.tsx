@@ -8,36 +8,36 @@ export function Footer() {
           <div>
             <Link
               href="/"
-              className="text-lg font-semibold tracking-tight text-[var(--color-text-primary)]"
+              className="micro-link text-h4 font-semibold tracking-tight text-[var(--color-text-primary)]"
             >
               Founder Revenue Co-Pilot
             </Link>
-            <p className="mt-2 text-sm text-[var(--color-text-muted)]">
+            <p className="mt-2 text-body-sm text-[var(--color-text-muted)]">
               Developer-first revenue infrastructure.
             </p>
           </div>
           <div className="flex gap-8">
             <Link
               href="/pricing"
-              className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+              className="micro-link text-body-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
             >
               Pricing
             </Link>
             <Link
               href="/case-studies"
-              className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+              className="micro-link text-body-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
             >
               Case Studies
             </Link>
             <Link
               href="/contact"
-              className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+              className="micro-link text-body-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
             >
               Contact
             </Link>
           </div>
         </div>
-        <p className="mt-8 border-t border-[var(--color-border)] pt-8 text-sm text-[var(--color-text-muted)]">
+        <p className="mt-8 border-t border-[var(--color-border)] pt-8 text-caption text-[var(--color-text-muted)]">
           © {new Date().getFullYear()} Founder Revenue Co-Pilot. All rights reserved.
         </p>
       </div>

@@ -155,14 +155,14 @@ export default function PricingPage() {
             {PLANS.map((plan) => (
               <div
                 key={plan.id}
-                className={`relative flex flex-col rounded-2xl border p-8 ${
+                className={`micro-card relative flex flex-col rounded-2xl border p-8 ${
                   plan.highlighted
-                    ? "border-[var(--color-accent-mid)] bg-[var(--color-accent-mid)]/5 shadow-[var(--shadow-lg)]"
+                    ? "border-[var(--color-accent-mid)] bg-[var(--color-accent-mid)]/[0.06] shadow-[var(--shadow-lg)]"
                     : "border-[var(--color-border)] bg-white"
                 }`}
               >
                 {plan.highlighted && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[var(--color-accent-mid)] px-4 py-1 text-xs font-semibold text-white">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-accent px-4 py-1 text-xs font-semibold text-white shadow-sm">
                     Most popular
                   </div>
                 )}
@@ -199,9 +199,9 @@ export default function PricingPage() {
                 </ul>
                 <Link
                   href={plan.id === "enterprise" ? "/contact" : "/#cta"}
-                  className={`mt-8 block w-full rounded-full py-3 text-center font-medium transition-colors ${
+                  className={`micro-btn mt-8 block w-full rounded-xl py-3 text-center text-body font-medium ${
                     plan.highlighted
-                      ? "bg-[var(--color-accent-mid)] text-white hover:opacity-90"
+                      ? "bg-gradient-accent text-white shadow-sm hover:opacity-90"
                       : "border border-[var(--color-border-strong)] text-[var(--color-text-primary)] hover:bg-[var(--color-bg-subtle)]"
                   }`}
                 >

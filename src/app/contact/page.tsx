@@ -70,7 +70,7 @@ export default function ContactPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Your name"
-                className="w-full rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-accent-mid)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent-mid)]"
+                className="micro-input w-full rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-accent-mid)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-mid)] focus:ring-offset-2"
               />
             </div>
 
@@ -88,7 +88,7 @@ export default function ContactPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
                 required
-                className="w-full rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-accent-mid)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent-mid)]"
+                className="micro-input w-full rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-accent-mid)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-mid)] focus:ring-offset-2"
               />
             </div>
 
@@ -100,7 +100,7 @@ export default function ContactPage() {
                 {REQUEST_TYPES.map((type) => (
                   <label
                     key={type.id}
-                    className="flex cursor-pointer items-center gap-3 rounded-xl border border-[var(--color-border)] px-4 py-3 transition-colors has-[:checked]:border-[var(--color-accent-mid)] has-[:checked]:bg-[var(--color-accent-mid)]/5"
+                    className="micro-input flex cursor-pointer items-center gap-3 rounded-xl border border-[var(--color-border)] px-4 py-3 transition-colors has-[:checked]:border-[var(--color-accent-mid)] has-[:checked]:bg-[var(--color-accent-mid)]/5"
                   >
                     <input
                       type="radio"
@@ -132,7 +132,7 @@ export default function ContactPage() {
                 placeholder="Tell us how we can help..."
                 rows={5}
                 required
-                className="w-full resize-y rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-accent-mid)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent-mid)]"
+                className="micro-input w-full resize-y rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-accent-mid)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-mid)] focus:ring-offset-2"
               />
             </div>
 
@@ -143,7 +143,7 @@ export default function ContactPage() {
 
             <button
               type="submit"
-              className="w-full rounded-full bg-[var(--color-text-primary)] py-4 text-base font-medium text-white transition-colors hover:bg-[var(--color-text-primary)]/90"
+              className="micro-btn w-full rounded-xl bg-[var(--color-text-primary)] py-4 text-body font-medium text-white shadow-sm hover:opacity-90"
             >
               Open email to send
             </button>

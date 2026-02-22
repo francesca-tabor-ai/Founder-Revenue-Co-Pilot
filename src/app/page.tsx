@@ -1,61 +1,36 @@
 import Link from "next/link";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { FadeIn } from "@/components/FadeIn";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero — accent gradient used sparingly */}
-      <header className="border-b border-[#e5e5e5] bg-white">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <span className="text-h4 font-semibold text-[#0a0a0a]">
-            Founder Revenue Co-Pilot
-          </span>
-          <div className="flex gap-6">
-            <Link
-              href="#"
-              className="text-body text-[#525252] transition-colors hover:text-[#0a0a0a]"
-            >
-              Product
-            </Link>
-            <Link
-              href="#"
-              className="text-body text-[#525252] transition-colors hover:text-[#0a0a0a]"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#"
-              className="rounded-xl bg-[#0a0a0a] px-5 py-2.5 text-body font-medium text-white transition-opacity hover:opacity-90"
-            >
-              Get started
-            </Link>
-          </div>
-        </nav>
-      </header>
-
-      <main>
-        {/* Hero section — gradient accent, lots of white space */}
-        <section className="mx-auto max-w-6xl px-6 py-24">
+      <Header />
+      <main className="pt-16">
+        {/* Hero section — gradient accent used sparingly, lots of white space */}
+        <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
           <div className="max-w-2xl">
-            <p className="mb-4 text-body-sm font-medium uppercase tracking-wide text-[#737373]">
+            <p className="mb-4 text-body-sm font-medium uppercase tracking-wide text-[var(--color-text-muted)]">
               Revenue infrastructure for founders
             </p>
-            <h1 className="mb-6 text-display font-bold tracking-tight text-[#0a0a0a]">
+            <h1 className="mb-6 text-display font-bold tracking-tight text-[var(--color-text-primary)]">
               Built for the builders.
             </h1>
-            <p className="mb-10 max-w-xl text-body-lg leading-relaxed text-[#525252]">
+            <p className="mb-10 max-w-xl text-body-lg leading-relaxed text-[var(--color-text-secondary)]">
               Developer-first tools that just work. Calm, confident, quietly
               powerful — invisible infrastructure rather than flashy marketing.
             </p>
             <div className="flex gap-4">
               <Link
-                href="#"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#0a0a0a] px-6 py-3 text-body font-medium text-white shadow-sm transition-all hover:opacity-90"
+                href="/pricing"
+                className="micro-btn inline-flex items-center gap-2 rounded-xl bg-[var(--color-text-primary)] px-6 py-3 text-body font-medium text-white shadow-sm hover:opacity-90"
               >
                 Start free trial
               </Link>
               <Link
-                href="#"
-                className="inline-flex items-center rounded-xl border border-[#e5e5e5] px-6 py-3 text-body font-medium text-[#0a0a0a] transition-colors hover:border-[#d4d4d4] hover:bg-[#fafafa]"
+                href="/case-studies"
+                className="micro-btn inline-flex items-center rounded-xl border border-[var(--color-border)] px-6 py-3 text-body font-medium text-[var(--color-text-primary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-bg-subtle)]"
               >
                 View demo
               </Link>
@@ -71,22 +46,22 @@ export default function Home() {
           />
         </section>
 
-        {/* Dashboard preview — rounded UI, cool greys */}
-        <section className="border-t border-[#e5e5e5] bg-[#fafafa]">
-          <div className="mx-auto max-w-6xl px-6 py-20">
-            <h2 className="mb-3 text-h2 font-semibold text-[#0a0a0a]">
+        {/* Dashboard preview — rounded UI, cool greys (lazy reveal) */}
+        <section className="border-t border-[var(--color-border)] bg-[var(--color-bg-subtle)]">
+          <FadeIn className="mx-auto max-w-6xl px-6 py-20">
+            <h2 className="mb-3 text-h2 font-semibold text-[var(--color-text-primary)]">
               Your revenue at a glance
             </h2>
-            <p className="mb-12 max-w-xl text-body text-[#525252]">
+            <p className="mb-12 max-w-xl text-body text-[var(--color-text-secondary)]">
               Clear, neutral, optimized for data readability.
             </p>
-            <div className="overflow-hidden rounded-2xl border border-[#e5e5e5] bg-white shadow-sm">
-              <div className="border-b border-[#e5e5e5] px-6 py-5">
-                <h3 className="text-h4 font-semibold text-[#0a0a0a]">
+            <div className="micro-card overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-[var(--shadow-md)]">
+              <div className="border-b border-[var(--color-border)] px-6 py-5">
+                <h3 className="text-h4 font-semibold text-[var(--color-text-primary)]">
                   Revenue overview
                 </h3>
               </div>
-              <div className="grid gap-px bg-[#e5e5e5] sm:grid-cols-3">
+              <div className="grid gap-px bg-[var(--color-border)] sm:grid-cols-3">
                 {[
                   { label: "MRR", value: "$42,500", change: "+12%" },
                   { label: "Churn", value: "2.1%", change: "-0.3%" },
@@ -96,8 +71,8 @@ export default function Home() {
                     key={metric.label}
                     className="bg-white px-6 py-5"
                   >
-                    <p className="text-caption text-[#737373]">{metric.label}</p>
-                    <p className="mt-1 text-2xl font-semibold tabular-nums tracking-tight text-[#0a0a0a]">
+                    <p className="text-caption text-[var(--color-text-muted)]">{metric.label}</p>
+                    <p className="mt-1 text-2xl font-semibold tabular-nums tracking-tight text-[var(--color-text-primary)]">
                       {metric.value}
                     </p>
                     <p className="mt-1 text-body-sm font-medium text-emerald-600">
@@ -107,17 +82,10 @@ export default function Home() {
                 ))}
               </div>
             </div>
-          </div>
+          </FadeIn>
         </section>
 
-        {/* Footer — minimal */}
-        <footer className="border-t border-[#e5e5e5] py-12">
-          <div className="mx-auto max-w-6xl px-6">
-            <p className="text-caption text-[#737373]">
-              © 2025 Founder Revenue Co-Pilot. Developer-first.
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </div>
   );

@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import "tailwindcss";
 
 /* ============================================
    FOUNDER REVENUE CO-PILOT — Design System
@@ -24,14 +24,14 @@
   --tracking-normal: 0;
   --tracking-wide: 0.01em;
   
-  /* Colors — minimal + expressive */
+  /* Colors — minimal + expressive (cool greys) */
   --color-text-primary: #0a0a0a;
-  --color-text-secondary: #525252;
-  --color-text-muted: #737373;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
   --color-bg: #ffffff;
-  --color-bg-subtle: #fafafa;
-  --color-border: #e5e5e5;
-  --color-border-strong: #d4d4d4;
+  --color-bg-subtle: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
   --color-accent-start: #7c3aed;
   --color-accent-mid: #3b82f6;
   --color-accent-end: #ec4899;
@@ -136,6 +136,11 @@ body {
   letter-spacing: var(--tracking-tight);
 }
 
+/* Signature gradient — use sparingly for hero, illustrations, highlights */
+.bg-gradient-accent {
+  background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 35%, #ec4899 70%, #f97316 100%);
+}
+
 /* Logo scroll animation */
 @keyframes scroll {
   0% {
@@ -149,4 +154,28 @@ body {
 .animate-scroll {
   animation: scroll 20s linear infinite;
   width: max-content;
+}
+
+/* Micro-interactions — subtle motion and depth */
+.micro-btn {
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.micro-btn:active {
+  transform: scale(0.98);
+}
+.micro-link {
+  transition: color 0.2s ease-out, transform 0.2s ease-out;
+}
+.micro-link:hover {
+  transform: translateY(-1px);
+}
+.micro-card {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.micro-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.06), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+}
+.micro-input {
+  transition: box-shadow 0.2s ease-out, border-color 0.2s ease-out;
 }

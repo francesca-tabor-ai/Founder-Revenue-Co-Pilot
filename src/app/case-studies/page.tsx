@@ -131,7 +131,7 @@ export default function CaseStudiesPage() {
                     {study.results.map((r) => (
                       <div
                         key={r.label}
-                        className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-subtle)] p-4 text-center"
+                        className="micro-card rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-subtle)] p-4 text-center"
                       >
                         <p className="text-data text-xl text-[var(--color-text-primary)]">
                           {r.value}
@@ -157,7 +157,7 @@ export default function CaseStudiesPage() {
             </p>
             <Link
               href="/pricing"
-              className="inline-block rounded-full bg-[var(--color-text-primary)] px-8 py-3 font-medium text-white transition-colors hover:bg-[var(--color-text-primary)]/90"
+              className="micro-btn inline-block rounded-xl bg-[var(--color-text-primary)] px-8 py-3 text-body font-medium text-white shadow-sm hover:opacity-90"
             >
               View pricing
             </Link>

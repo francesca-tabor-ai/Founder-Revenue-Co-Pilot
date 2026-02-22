@@ -169,7 +169,7 @@ export function ChatWidget() {
         {/* Header */}
         <div className="flex shrink-0 items-center justify-between border-b border-[var(--color-border)] bg-[var(--color-bg-subtle)] px-4 py-3">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--gradient-accent)] text-white">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-accent text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -266,7 +266,7 @@ export function ChatWidget() {
                 <button
                   key={probe}
                   onClick={() => handleProbeClick(probe)}
-                  className="rounded-full border border-[var(--color-border)] bg-white px-3 py-1.5 text-xs text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-accent-mid)] hover:bg-[var(--color-accent-mid)]/5 hover:text-[var(--color-accent-mid)]"
+                  className="micro-btn rounded-full border border-[var(--color-border)] bg-white px-3 py-1.5 text-xs text-[var(--color-text-secondary)] hover:border-[var(--color-accent-mid)] hover:bg-[var(--color-accent-mid)]/5 hover:text-[var(--color-accent-mid)]"
                 >
                   {probe}
                 </button>
@@ -285,12 +285,12 @@ export function ChatWidget() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask about the platform..."
-              className="flex-1 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-subtle)] px-4 py-2.5 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-accent-mid)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent-mid)]"
+              className="micro-input flex-1 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-subtle)] px-4 py-2.5 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-accent-mid)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-mid)] focus:ring-offset-2"
             />
             <button
               onClick={handleSend}
               disabled={!input.trim()}
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--color-text-primary)] text-white transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="micro-btn flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--color-text-primary)] text-white hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               aria-label="Send message"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
@@ -304,7 +304,7 @@ export function ChatWidget() {
       {/* Floating chat button */}
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="fixed bottom-6 right-6 z-[99] flex h-14 w-14 items-center justify-center rounded-full bg-[var(--gradient-accent)] text-white shadow-[var(--shadow-lg)] transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-mid)] focus:ring-offset-2"
+        className="micro-btn fixed bottom-6 right-6 z-[99] flex h-14 w-14 items-center justify-center rounded-full bg-gradient-accent text-white shadow-[var(--shadow-lg)] hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-mid)] focus:ring-offset-2"
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? (
